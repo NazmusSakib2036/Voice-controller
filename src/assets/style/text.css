@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.text-to-voice-container {
+    text-align: center;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    height: auto;
+    /* Let it grow based on content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(250, 20, 205, 0.2);
+    /* Semi-transparent background */
+    border-radius: 10px;
+    /* Optional: for rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Optional: adds shadow */
+    position: relative;
+    z-index: 2;
+    /* Ensures the container is above the background */
+}
+
+.title_text {
+    font-size: 2.5rem;
+    font-weight: 500;
+    font-family: sans-serif;
+    background: linear-gradient(90deg, #ff0000, #ff7300, #ffeb00, #00ff00, #007bff, #8a2be2, #ff0000);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientTextMove 2s linear infinite;
+}
+
+@keyframes gradientTextMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.auto_select_ln{
+    font-size: 1rem;
+    color: grey;
+    margin-bottom: 1rem;
+}
+
+/* Language Selection Dropdown */
+.voice-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.voice-select:disabled {
+    background-color: #e0e0e0;
+}
+
+/* Text Input Area */
+.text-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    background-color: rgba(25, 200, 250, 0.1);
+    font-size: 1.3rem;
+    color: #00ff00;
+    resize: none;
+    outline: none;
+}
+
+.text-input:disabled {
+    background-color: rgba(250, 20, 205, 0.2);
+}
+
+/* Button Style */
+.voice-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.125rem;
+    color: black;
+    background-color: #00ff00;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+
+.voice-button:hover {
+    background-color: #37fff6;
+}
+
+
+
+
+.voice-button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+    animation: pulse 1s infinite;
+}
+
+/* Success and Error Messages */
+.success-message {
+    color: #28a745;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+/* Loading or Speaking Status */
+.voice-button[disabled] {
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .text-to-voice-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .text-input {
+        padding: 10px;
+        font-size: 0.875rem;
+    }
+
+    .voice-button {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .success-message, .error-message {
+        font-size: 0.875rem;
+    }
+}
